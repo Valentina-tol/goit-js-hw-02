@@ -1,14 +1,18 @@
 'use strict';
 
-// Calculate the total width of an element
-function getElementWidth(content, padding, border) {
-  const totalWidth = content + padding * 2 + border * 2;
+// Check if a message contains spam or sale
+function checkForSpam(message) {
+  const lowerCaseMessage = message.toLowerCase();
 
-  // Return the total width
-  return totalWidth;
+  // Check for forbidden words
+  return lowerCaseMessage.includes('spam') || lowerCaseMessage.includes('sale');
 }
 
 // Test the function
-console.log(getElementWidth(50, 8, 4)); // 74
-console.log(getElementWidth(60, 12, 8.5)); // 101
-console.log(getElementWidth(200, 0, 0)); // 200
+console.log(checkForSpam('Latest technology news'));
+console.log(checkForSpam('JavaScript weekly newsletter'));
+console.log(checkForSpam('Get best sale offers now!'));
+console.log(checkForSpam('Amazing Sale, only tonight!'));
+console.log(checkForSpam('Trust me, this is not a spam message!'));
+console.log(checkForSpam('Get rid of sPaM emails. Our book is on sale!'));
+console.log(checkForSpam('[SPAM] How to earn fast money?'));
